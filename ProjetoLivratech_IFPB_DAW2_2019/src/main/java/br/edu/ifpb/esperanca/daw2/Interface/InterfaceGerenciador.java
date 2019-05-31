@@ -3,12 +3,12 @@ package br.edu.ifpb.esperanca.daw2.Interface;
 import java.util.ArrayList;
 
 import br.edu.ifpb.esperanca.daw2.livratech.entities.Area;
-import  br.edu.ifpb.esperanca.daw2.livratech.entities.Autor;
-import br.ifpb.edu.livratech.Categoria;
-import br.ifpb.edu.livratech.Editora;
-import br.ifpb.edu.livratech.Gerenciador;
-import br.ifpb.edu.livratech.Livro;
-import br.ifpb.edu.livratech.Pedido;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Autor;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Categoria;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Editora;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Gerenciador;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Livro;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Pedido;
 
 public interface InterfaceGerenciador {
 
