@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,8 @@ import javax.persistence.Table;
 public class Gerenciador {
 	
 	@Id
+	@GeneratedValue(generator="gerenciador_seq", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="gerenciador_seq")
 	@Column(name="gerenciador_cpf")
 	private Integer cpf;
 	

@@ -6,12 +6,12 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import br.edu.ifpb.esperanca.daw2.dao.UsuarioDAO;
-import br.edu.ifpb.esperanca.daw2.livratech.entities.Usuario;
+import br.edu.ifpb.esperanca.daw2.dao.GerenciadorDAO;
+import br.edu.ifpb.esperanca.daw2.livratech.entities.Gerenciador;
 import br.edu.ifpb.esperanca.daw2.util.TransacionalCdi;
 
 @ApplicationScoped
-public class UserService implements Serializable, Service<Usuario> {
+public class UserService implements Serializable, Service<Gerenciador> {
 
 	/**
 	 * 
@@ -19,14 +19,14 @@ public class UserService implements Serializable, Service<Usuario> {
 	private static final long serialVersionUID = -7803325791425670859L;
 	
 	@Inject
-	private UsuarioDAO userDAO;
+	private GerenciadorDAO userDAO;
 	
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
 	 */
 	@Override
 	@TransacionalCdi
-	public void save(Usuario user) {
+	public void save(Gerenciador user) {
 		userDAO.save(user);
 	}
 
@@ -35,7 +35,7 @@ public class UserService implements Serializable, Service<Usuario> {
 	 */
 	@Override
 	@TransacionalCdi
-	public void update(Usuario user)  {
+	public void update(Gerenciador user)  {
 			userDAO.update(user);
 	}
 
@@ -44,7 +44,7 @@ public class UserService implements Serializable, Service<Usuario> {
 	 */
 	@Override
 	@TransacionalCdi
-	public void remove(Usuario user) {
+	public void remove(Gerenciador user) {
 		userDAO.remove(user);
 	}
 
@@ -52,7 +52,7 @@ public class UserService implements Serializable, Service<Usuario> {
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#getByID(long)
 	 */
 	@Override
-	public Usuario getByID(long userId)  {
+	public Gerenciador getByID(long userId)  {
 			return userDAO.getByID(userId);
 	}
 
@@ -60,7 +60,7 @@ public class UserService implements Serializable, Service<Usuario> {
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
 	 */
 	@Override
-	public List<Usuario> getAll() {
+	public List<Gerenciador> getAll() {
 			return userDAO.getAll();
 	}
 		
