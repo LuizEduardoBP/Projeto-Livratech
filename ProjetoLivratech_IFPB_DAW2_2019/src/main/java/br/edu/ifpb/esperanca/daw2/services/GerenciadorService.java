@@ -11,7 +11,7 @@ import br.edu.ifpb.esperanca.daw2.livratech.entities.Gerenciador;
 import br.edu.ifpb.esperanca.daw2.util.TransacionalCdi;
 
 @ApplicationScoped
-public class UserService implements Serializable, Service<Gerenciador> {
+public class GerenciadorService implements Serializable, Service <Gerenciador> {
 
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	private static final long serialVersionUID = -7803325791425670859L;
 	
 	@Inject
-	private GerenciadorDAO userDAO;
+	private GerenciadorDAO gerenciadorDAO;
 	
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
@@ -27,7 +27,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	@Override
 	@TransacionalCdi
 	public void save(Gerenciador user) {
-		userDAO.save(user);
+		gerenciadorDAO.save(user);
 	}
 
 	/* (non-Javadoc)
@@ -36,7 +36,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	@Override
 	@TransacionalCdi
 	public void update(Gerenciador user)  {
-			userDAO.update(user);
+		gerenciadorDAO.update(user);
 	}
 
 	/* (non-Javadoc)
@@ -45,7 +45,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	@Override
 	@TransacionalCdi
 	public void remove(Gerenciador user) {
-		userDAO.remove(user);
+		gerenciadorDAO.remove(user);
 	}
 
 	/* (non-Javadoc)
@@ -53,7 +53,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	 */
 	@Override
 	public Gerenciador getByID(long userId)  {
-			return userDAO.getByID(userId);
+			return gerenciadorDAO.getByID(userId);
 	}
 
 	/* (non-Javadoc)
@@ -61,7 +61,7 @@ public class UserService implements Serializable, Service<Gerenciador> {
 	 */
 	@Override
 	public List<Gerenciador> getAll() {
-			return userDAO.getAll();
+			return gerenciadorDAO.getAll();
 	}
 		
 }

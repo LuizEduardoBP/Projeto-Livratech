@@ -15,12 +15,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="GERENCIADOR")
-public class Gerenciador {
+public class Gerenciador implements Identificavel{
 	
 	@Id
 	@GeneratedValue(generator="gerenciador_seq", strategy=GenerationType.SEQUENCE)
 	@SequenceGenerator(name="gerenciador_seq")
 	@Column(name="gerenciador_cpf")
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	private Integer cpf;
 	
 	@Column(name="funcionario_nome")
@@ -184,20 +192,5 @@ public class Gerenciador {
 				+ emailfuncionario + ", senha=" + senha + ", areas=" + areas + ", autores=" + autores + ", categorias="
 				+ categorias + ", livros=" + livros + ", editoras=" + editoras + "]";
 	}
-	public Gerenciador(Integer cpf, String nomeFuncionario, String emailfuncionario, String senha,
-			ArrayList<Area> areas, ArrayList<Autor> autores, ArrayList<Categoria> categorias, ArrayList<Livro> livros,
-			ArrayList<Editora> editoras) {
-		super();
-		this.cpf = cpf;
-		this.nomeFuncionario = nomeFuncionario;
-		this.emailfuncionario = emailfuncionario;
-		this.senha = senha;
-		this.areas = areas;
-		this.autores = autores;
-		this.categorias = categorias;
-		this.livros = livros;
-		this.editoras = editoras;
-	}
-	
 	
 }

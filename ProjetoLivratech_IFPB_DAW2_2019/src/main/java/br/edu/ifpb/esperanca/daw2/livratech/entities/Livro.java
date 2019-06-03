@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="LIVRO")
-public class Livro {
+public class Livro implements Identificavel{
 	
 	@Id
 	@Column(name="livro_isbn")
-	private Integer isbn;
+	private Long id;
 	
 	@Column(name="livro_nome")
 	private String nomeLivro;
@@ -54,13 +54,13 @@ public class Livro {
 	@JoinColumn(name = "editora_cnpj")
 	private ArrayList<Editora> editoras;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
-	public Integer getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(Integer isbn) {
-		this.isbn = isbn;
-	}
 	public String getNomeLivro() {
 		return nomeLivro;
 	}
@@ -130,7 +130,7 @@ public class Livro {
 		result = prime * result + ((categorias == null) ? 0 : categorias.hashCode());
 		result = prime * result + ((edicao == null) ? 0 : edicao.hashCode());
 		result = prime * result + ((editoras == null) ? 0 : editoras.hashCode());
-		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((livros == null) ? 0 : livros.hashCode());
 		result = prime * result + ((nomeLivro == null) ? 0 : nomeLivro.hashCode());
 		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
@@ -172,10 +172,10 @@ public class Livro {
 				return false;
 		} else if (!editoras.equals(other.editoras))
 			return false;
-		if (isbn == null) {
-			if (other.isbn != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!isbn.equals(other.isbn))
+		} else if (!id.equals(other.id))
 			return false;
 		if (livros == null) {
 			if (other.livros != null)
@@ -206,13 +206,13 @@ public class Livro {
 	}
 	@Override
 	public String toString() {
-		return "Livro [isbn=" + isbn + ", nomeLivro=" + nomeLivro + ", preco=" + preco + ", resumo=" + resumo
+		return "Livro [isbn=" + id + ", nomeLivro=" + nomeLivro + ", preco=" + preco + ", resumo=" + resumo
 				+ ", edicao=" + edicao + ", quantLivro=" + quantLivro + ", areas=" + areas + ", autores=" + autores
 				+ ", categorias=" + categorias + ", livros=" + livros + ", editoras=" + editoras + "]";
 	}
 	public Livro() {
 		super();
-		this.isbn = isbn;
+		this.id = id;
 		this.nomeLivro = nomeLivro;
 		this.preco = preco;
 		this.resumo = resumo;

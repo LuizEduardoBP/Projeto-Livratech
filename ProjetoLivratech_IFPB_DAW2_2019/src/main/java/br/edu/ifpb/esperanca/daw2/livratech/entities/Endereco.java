@@ -8,12 +8,12 @@ import javax.persistence.Table;
 
 @Embeddable
 @Table(name="ENDERECO")
-public class Endereco {
+public class Endereco implements Identificavel{
 	
 	@Id
 	@GeneratedValue
 	@Column(name="endereco_numero")
-	private Integer numero;
+	private Long id;
 	
 	@Column(name="endereco_rua", nullable = false)
 	private String rua; 
@@ -21,12 +21,13 @@ public class Endereco {
 	@Column(name="endereco_bairro", nullable = false)
 	private String bairro;
 	
-	public Integer getNumero() {
-		return numero;
+	public Long getId() {
+		return id;
 	}
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setId(Long id) {
+		this.id = id;
 	}
+	
 	public String getRua() {
 		return rua;
 	}
@@ -44,7 +45,7 @@ public class Endereco {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((rua == null) ? 0 : rua.hashCode());
 		return result;
 	}
@@ -62,10 +63,10 @@ public class Endereco {
 				return false;
 		} else if (!bairro.equals(other.bairro))
 			return false;
-		if (numero == null) {
-			if (other.numero != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!numero.equals(other.numero))
+		} else if (!id.equals(other.id))
 			return false;
 		if (rua == null) {
 			if (other.rua != null)
@@ -76,11 +77,11 @@ public class Endereco {
 	}
 	@Override
 	public String toString() {
-		return "Endereco [numero=" + numero + ", rua=" + rua + ", bairro=" + bairro + "]";
+		return "Endereco [numero=" + id + ", rua=" + rua + ", bairro=" + bairro + "]";
 	}
 	public Endereco(Integer numero, String rua, String bairro) {
 		super();
-		this.numero = numero;
+		this.id = id;
 		this.rua = rua;
 		this.bairro = bairro;
 	}

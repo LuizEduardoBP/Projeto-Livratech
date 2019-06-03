@@ -11,11 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USUARIO")
-public class Editora {
+public class Editora implements Identificavel{
 	
 	@Id
 	@Column(name="editora_cnpj")
-	private Integer cnpj;
+	private Long id;
 	
 	@Column(name="editora_nome")
 	private String nomeEditora;
@@ -27,11 +27,11 @@ public class Editora {
 	@Column(name="ENDERECO_ID")
 	private ArrayList <Endereco> enderecos;
 	
-	public Integer getCnpj() {
-		return cnpj;
+	public Long getId() {
+		return id;
 	}
-	public void setCnpj(Integer cnpj) {
-		this.cnpj = cnpj;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNomeEditora() {
 		return nomeEditora;
@@ -50,7 +50,7 @@ public class Editora {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Endereco == null) ? 0 : Endereco.hashCode());
-		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nomeEditora == null) ? 0 : nomeEditora.hashCode());
 		return result;
 	}
@@ -68,10 +68,10 @@ public class Editora {
 				return false;
 		} else if (!Endereco.equals(other.Endereco))
 			return false;
-		if (cnpj == null) {
-			if (other.cnpj != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!cnpj.equals(other.cnpj))
+		} else if (!id.equals(other.id))
 			return false;
 		if (nomeEditora == null) {
 			if (other.nomeEditora != null)
@@ -82,11 +82,11 @@ public class Editora {
 	}
 	@Override
 	public String toString() {
-		return "Editora [cnpj=" + cnpj + ", nomeEditora=" + nomeEditora + ", Endereco=" + Endereco + "]";
+		return "Editora [cnpj=" +id + ", nomeEditora=" + nomeEditora + ", Endereco=" + Endereco + "]";
 	}
 	public Editora() {
 		super();
-		this.cnpj = cnpj;
+		this.id = id;
 		this.nomeEditora = nomeEditora;
 		Endereco = getEndereco();
 	}

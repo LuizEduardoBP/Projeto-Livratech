@@ -8,23 +8,25 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="AREA")
-public class Area {
+public class Area implements Identificavel{
 	
 	@Id
 	@GeneratedValue
 	@Column(name="area_id")
-	private Integer idArea;
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	@Column(name="area_nome")
 	private String nomeArea;
 	
 	
-	public Integer getIdArea() {
-		return idArea;
-	}
-	public void setIdArea(Integer idArea) {
-		this.idArea = idArea;
-	}
 	public String getNomeArea() {
 		return nomeArea;
 	}
@@ -35,7 +37,7 @@ public class Area {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idArea == null) ? 0 : idArea.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nomeArea == null) ? 0 : nomeArea.hashCode());
 		return result;
 	}
@@ -48,10 +50,10 @@ public class Area {
 		if (getClass() != obj.getClass())
 			return false;
 		Area other = (Area) obj;
-		if (idArea == null) {
-			if (other.idArea != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idArea.equals(other.idArea))
+		} else if (!id.equals(other.id))
 			return false;
 		if (nomeArea == null) {
 			if (other.nomeArea != null)
@@ -62,11 +64,11 @@ public class Area {
 	}
 	@Override
 	public String toString() {
-		return "Area [idArea=" + idArea + ", nomeArea=" + nomeArea + "]";
+		return "Area [idArea=" + id + ", nomeArea=" + nomeArea + "]";
 	}
 	public Area() {
 		super();
-		this.idArea = idArea;
+		this.id = id;
 		this.nomeArea = nomeArea;
 	}
 	

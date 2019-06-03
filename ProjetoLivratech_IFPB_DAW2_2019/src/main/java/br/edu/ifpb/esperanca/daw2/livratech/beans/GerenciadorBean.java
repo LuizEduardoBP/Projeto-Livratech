@@ -9,14 +9,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifpb.esperanca.daw2.livratech.entities.Gerenciador;
-import br.edu.ifpb.esperanca.daw2.services.UserService;
+import br.edu.ifpb.esperanca.daw2.services.GerenciadorService;
 
 @ViewScoped
 @Named
 public class GerenciadorBean implements Serializable {
 
 	@Inject
-	private UserService service;
+	private GerenciadorService service;
 
 	protected Gerenciador entidade;
 
@@ -57,8 +57,8 @@ public class GerenciadorBean implements Serializable {
 		limpar();
 	}
 
-	public void editar(Long id) {
-		this.getEntidade().setId(id);
+	public void editar(Integer cpf) {
+		this.getEntidade().setCpf(cpf);
 		save();
 	}
 
@@ -71,7 +71,7 @@ public class GerenciadorBean implements Serializable {
 		return new Gerenciador();
 	}
 
-	public UserService getService() {
+	public GerenciadorService getService() {
 		return service;
 	}
 

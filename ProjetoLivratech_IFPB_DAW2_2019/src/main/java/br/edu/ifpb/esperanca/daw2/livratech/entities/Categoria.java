@@ -8,23 +8,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CATEGORIA") 
-public class Categoria {
+public class Categoria implements Identificavel{
 	
 	@Id
 	@GeneratedValue
 	@Column(name="categoria_id")
-	private Integer idCategoria;
+	private Long id;
 	
 	@Column(name="categoria_nome")
 	private String nomeCategoria;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
-	}
 	public String getNomeCategoria() {
 		return nomeCategoria;
 	}
@@ -35,7 +35,7 @@ public class Categoria {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idCategoria == null) ? 0 : idCategoria.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nomeCategoria == null) ? 0 : nomeCategoria.hashCode());
 		return result;
 	}
@@ -48,10 +48,10 @@ public class Categoria {
 		if (getClass() != obj.getClass())
 			return false;
 		Categoria other = (Categoria) obj;
-		if (idCategoria == null) {
-			if (other.idCategoria != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idCategoria.equals(other.idCategoria))
+		} else if (!id.equals(other.id))
 			return false;
 		if (nomeCategoria == null) {
 			if (other.nomeCategoria != null)
@@ -62,11 +62,11 @@ public class Categoria {
 	}
 	@Override
 	public String toString() {
-		return "Categoria [idCategoria=" + idCategoria + ", nomeCategoria=" + nomeCategoria + "]";
+		return "Categoria [idCategoria=" + id + ", nomeCategoria=" + nomeCategoria + "]";
 	}
 	public Categoria() {
 		super();
-		this.idCategoria = idCategoria;
+		this.id = id;
 		this.nomeCategoria = nomeCategoria;
 	}
 	
